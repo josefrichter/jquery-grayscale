@@ -1,8 +1,11 @@
-// jQuery grayscale plugin
-// converts color images to grayscale using canvas element
-// requires jQuery (tested only with 1.5.2) and canvas compatible browser
-// (c) Josef Richter 2011
-// https://github.com/josefrichter/jquery-grayscale
+/* jQuery grayscale plugin
+ 	 converts color images to grayscale using canvas element
+   requires jQuery (tested only with 1.5.2) and canvas compatible browser
+   (c) Josef Richter 2011
+   https://github.com/josefrichter/jquery-grayscale
+   licensed under MIT license
+   (see http://www.opensource.org/licenses/mit-license)
+*/
 
 (function( $ ){
 
