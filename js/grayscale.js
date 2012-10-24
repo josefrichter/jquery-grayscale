@@ -38,16 +38,15 @@ return this.each(function(){
 	
 		var imgPixels = ctx.getImageData(0, 0, canvas.width, canvas.height);
 	
-			for(var y = 0; y < imgPixels.height; y++){
-				for(var x = 0; x < imgPixels.width; x++){
-					var i = (y * 4) * imgPixels.width + x * 4;
-					var avg = (imgPixels.data[i + 0] +  imgPixels.data[i + 1] + imgPixels.data[i + 2]) / 3;
-					
-					imgPixels.data[i + 0] = avg; 
-					imgPixels.data[i + 1] = avg; 
-					imgPixels.data[i + 2] = avg;
-				}
-			}
+		for(var i = 0, n = imgPixels.data.length; i < n; i += 4) {
+			//Calculate monochrome value using Classic Luma formula used by most image processing software
+			var avg = imgPixels.data[i + 0] * 0.2126 + imgPixels.data[i + 1] * 0.7152 + imgPixels.data[i + 2] * 0.0722; 
+
+			imgPixels.data[i + 0] = avg; //red channel
+			imgPixels.data[i + 1] = avg; //blue channel
+			imgPixels.data[i + 2] = avg; //green channel
+			// i + 4 would be the alpha channel
+		}
 	
 				ctx.putImageData(imgPixels, 0, 0, 0, 0, imgPixels.width, imgPixels.height);
 					$this.attr('src',canvas.toDataURL());
