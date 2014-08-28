@@ -8,6 +8,8 @@ requires jQuery, HTML5 canvas
 usage:                   
 
 		$('img').grayscale();
+		OR
+		$('div.bg-image').grayscale();
 		
 (c) Josef Richter 2011
 licensed under MIT license
